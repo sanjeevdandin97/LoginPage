@@ -1,0 +1,113 @@
+<div class="h-100 d-flex justify-content-md-center align-items-center">
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <h2><strong>Icon</strong></h2>
+                <!-- <img src="" id="icon" alt="User Icon" /> -->
+            </div>
+            <!-- Login Form -->
+            <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+                <div>
+                    <input type="text" formControlName="firstName" class="fadeIn second" placeholder="First Name*">
+                    <div [ngClass]="'myInput-div-label'">
+                        <label [ngClass]="'myInput-label'">First Name</label>
+                    </div>
+                </div>
+                <span class="text-danger"
+                    *ngIf="(checkoutFormControl.firstName.touched || submitted) && checkoutFormControl.firstName.errors?.required">
+                    First Name is required
+                </span>
+                <div>
+                    <input type="text" formControlName="middleName" class="fadeIn second" placeholder="Middle Name">
+                    <div [ngClass]="'myInput-div-label'">
+                        <label [ngClass]="'myInput-label'">Middle Name</label>
+                    </div>
+                </div>
+                <div>
+                    <input type="text" formControlName="lastName" class="fadeIn second" placeholder="Last Name*">
+                    <div [ngClass]="'myInput-div-label'">
+                        <label [ngClass]="'myInput-label'">Last Name</label>
+                    </div>
+                </div>
+                <span class="text-danger"
+                    *ngIf="(checkoutFormControl.lastName.touched || submitted) && checkoutFormControl.lastName.errors?.required">
+                    Last Name is required
+                </span>
+                <div>
+                    <input type="text" formControlName="userName" class="fadeIn second" placeholder="Username*">
+                    <div [ngClass]="'myInput-div-label'">
+                        <label [ngClass]="'myInput-label'">Username</label>
+                    </div>
+                </div>
+                <span class="text-danger"
+                    *ngIf="(checkoutFormControl.userName.touched || submitted) && checkoutFormControl.userName.errors?.required">
+                    User Name is required
+                </span>
+                <div>
+                    <input type="email" formControlName="email" class="fadeIn second" placeholder="Email*">
+                    <div [ngClass]="'myInput-div-label'">
+                        <label [ngClass]="'myInput-label'">Email</label>
+                    </div>
+                </div>
+                <span class="text-danger"
+                    *ngIf="(checkoutFormControl.email.touched || submitted) && checkoutFormControl.email.errors?.required">
+                    Email is required
+                </span>
+                <span class="text-danger"
+                    *ngIf="checkoutFormControl.email.touched && checkoutFormControl.email.errors?.email">
+                    Enter a valid email address
+                </span>
+                <div>
+                    <input type="number" formControlName="phone" class="fadeIn second" placeholder="Phone*">\
+                    <div [ngClass]="'myInput-div-label'">
+                        <label [ngClass]="'myInput-label'">Phone</label>
+                    </div>
+                </div>
+                <span class="text-danger"
+                    *ngIf="(checkoutFormControl.phone.touched || submitted) && checkoutFormControl.phone.errors?.required">
+                    Phone No is required
+                </span>
+                <span class="text-danger"
+                    *ngIf="checkoutFormControl.phone.touched && checkoutFormControl.phone.errors?.min">
+                    Min length of Phone No is 10
+                </span>
+                <span class="text-danger"
+                    *ngIf="checkoutFormControl.phone.touched && checkoutFormControl.phone.errors?.max">
+                    Max length of Phone No is 10
+                </span>
+                <div>
+                    <input type="password" formControlName="pass1" class="fadeIn third" placeholder="Password*">
+                    <div [ngClass]="'myInput-div-label'">
+                        <label [ngClass]="'myInput-label'">Password</label>
+                    </div>
+                </div>
+                <span class="text-danger"
+                    *ngIf="(checkoutFormControl.pass1.touched || submitted) && checkoutFormControl.pass1.errors?.required">
+                    Password is required
+                </span>
+                <div>
+                    <input type="password" formControlName="pass2" class="fadeIn third" placeholder="Confirm Password*">
+                    <div [ngClass]="'myInput-div-label'">
+                        <label [ngClass]="'myInput-label'">Confirm Password</label>
+                    </div>
+                </div>
+                <span class="text-danger"
+                    *ngIf="(checkoutFormControl.pass2.touched || submitted) && checkoutFormControl.pass2.errors?.required">
+                    Confirm Password is required
+                </span>
+                <span class="text-danger"
+                    *ngIf="checkoutFormControl.pass2.touched && checkoutFormControl.pass2.errors?.passwordMismatch">
+                    Passwords doesnot match
+                </span>
+                <input type="submit" class="fadeIn fourth" value="Register">
+                <input type="button" routerLink="/login" class="fadeIn fourth" value="Go Back to Login">
+            </form>
+            <!-- Remind Passowrd -->
+            <!-- <div `"formFooter">
+                <a class="underlineHover" href="#">{{ newUserDet.userName }}</a>
+            </div> -->
+        </div>
+    </div>
+</div>
