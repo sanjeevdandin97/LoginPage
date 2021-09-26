@@ -27,7 +27,6 @@ export class RegistrationService {
   constructor(private httpClient: HttpClient, private customValidator: CustomvalidationService) { }
 
   registerUser(filledNewUserDet: any) {
-    // console.log('success');
     return this.httpClient.post('//127.0.0.1:8000/create', filledNewUserDet).subscribe();
   }
 }
